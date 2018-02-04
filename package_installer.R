@@ -38,7 +38,7 @@ cat("This script will now attempt to install all of the R packages used in 'Mach
 for(p in cran.packages) {
     if(!suppressWarnings(require(p, character.only = TRUE, quietly = TRUE))) {
         cat(paste(p, "missing, will attempt to install\n"))
-        install.packages(p, dependencies = TRUE, type = "source")
+      install.packages(p, dependencies = TRUE, type = "source")
     }
     else {
         cat(paste(p, "installed OK\n"))
