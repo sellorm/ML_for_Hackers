@@ -16,7 +16,8 @@
 # Create a vector containing all of the packages that will be used in the case studies
 # (in no particular order)
 
-options(repos=structure(c(CRAN="http://cran.stat.auckland.ac.nz/")))
+# Set a custom CRAN to install from by uncommenting this line and adjusting the CRAN URL to taste 
+# options(repos=structure(c(CRAN="http://cran.stat.auckland.ac.nz/")))
 
 cran.packages <- c("e1071",
                    "ggplot2",
@@ -38,7 +39,7 @@ cat("This script will now attempt to install all of the R packages used in 'Mach
 for(p in cran.packages) {
     if(!suppressWarnings(require(p, character.only = TRUE, quietly = TRUE))) {
         cat(paste(p, "missing, will attempt to install\n"))
-      install.packages(p, dependencies = TRUE, type = "source")
+      install.packages(p, dependencies = TRUE)
     }
     else {
         cat(paste(p, "installed OK\n"))
